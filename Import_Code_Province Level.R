@@ -16,6 +16,6 @@ for( i in 1:length(province))
   data<-data[-1,]
   data<-data[-1,]
   data<-data[-1,]
-  assign(paste("province_number:", i, sep=""), read_html(url) %>% html_node(xpath='//*[@id="wb-main-in"]/div[2]/table') %>% html_table(fill=TRUE))
+  try(assign(paste("province_number:", i, sep=""), read_html(url) %>% html_node(xpath='//*[@id="wb-main-in"]/div[2]/table') %>% html_table(fill=TRUE)))
   cum_canada<-rbind(cum_canada,data)
 }
